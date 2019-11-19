@@ -1,0 +1,116 @@
+
+body
+{   
+	background: url("busseat.jpg");
+         background-size: auto;
+      background-repeat: no-repeat;
+      background-size: cover;
+  
+      font-family: sans-serif;
+  
+
+}
+
+
+
+
+img.image
+{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	position: absolute;
+	top: -50px;
+
+	left: calc(50% - 50px);
+}
+
+div.form
+{
+	width: 320px;
+	height: 520px;
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	box-sizing: border-box;
+	padding: 50px 30px;
+
+}
+       
+
+
+h2
+  {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px; 
+    font-family: Helvetica, Arial, sans-serif;
+ 
+}
+
+
+.form input
+{
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+::placeholder {
+	color: #fff;
+	opacity: 1;
+
+}
+
+
+
+ input[type="submit"]
+{
+	color: white;
+	background: #0066ff;
+	height: 30px;
+	border-radius: 20px;
+}
+
+ input[type="reset"]
+{
+	color: white;
+	background: #0066ff;
+	height: 30px;
+	border-radius: 20px;
+}
+
+
+input,textarea{
+    color: white;
+}
+
+.form input[type="text"]
+{
+
+border: none;
+border-bottom: 1px solid #fff;
+background: transparent;
+outline: none;
+height: 40px;
+}
+
+.time
+{
+	background-color: #bfbfbf;
+	text-shadow: black;
+	tex
+
+}
+
+
+#date
+{
+	background-color: transparent;
+
+}
+
+

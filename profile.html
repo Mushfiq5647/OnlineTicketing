@@ -1,0 +1,592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0054)http://portal.kuet.ac.bd/bbh/Student/frmMyProfile.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" class="scripted"><head id="SiteHead"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
+	KUET Hall Management System
+</title><link href="./profile_files/Site.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+        function disp_confirm() {
+            var r = confirm("Are you sure to perform the action?");
+            return r;
+        }
+
+        ////////////////////////////////////////// Submit Confirmation ///////////////////////////////////
+        function executeOnSubmit() {
+            var res = confirm("Are you sure to perform the action?");
+            if (res)
+                return true;
+            else
+                return false;
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////////////
+
+        function DeleteCheckEffect(DeleteCheckBox, EditCheckBox) {
+            var delobj = document.getElementById(DeleteCheckBox);
+            var editobj = document.getElementById(EditCheckBox);
+            editobj.checked = false;
+        }
+        function EditCheckEffect(hidEditCheckedIDS, EditCheckBox, DeleteCheckBox) {
+            var hidobj = document.getElementById(hidEditCheckedIDS);
+
+            var values = hidobj.value.split(",");
+
+            for (i = 0; i < values.length; i++) {
+                var tempEditID = values[i];
+                var tempobj = document.getElementById(values[i]);
+                if (tempEditID != EditCheckBox) {
+                    tempobj.checked = false;
+                }
+            }
+            var delobj = document.getElementById(DeleteCheckBox);
+            delobj.checked = false;
+        }
+
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 45 || charCode > 57))
+                return false;
+
+            return true;
+        }
+
+        function isValueZero(ValueField) {
+
+            var objValueField = document.getElementById(ValueField);
+            objValueField.text = 0;
+        }
+
+        function disableOnSubmit(target) {
+            if (typeof (Page_ClientValidate) == 'function') {
+                if (Page_ClientValidate() == false) { return false; }
+            }
+            target.value = 'Wait';
+            target.disabled = true;
+            return true;
+        }
+    </script>
+    
+    <script type="text/javascript">
+
+        (function () { document.getElementsByTagName('html')[0].className = 'scripted' })();
+
+    </script>
+    <style type="text/css">
+        #datetime
+        {
+            font-family: "Courier New" , monospace;
+            letter-spacing: 0.25em; /* border: 3px solid #c00;
+            background: #f5f5e5;*/
+            text-align: right;
+            font-weight: bold;
+            padding: 5px 0;
+        }
+        .scripted #datetime
+        {
+            /*border: 3px double #ccc;
+            background: #f5f5f5;*/
+            text-align: right;
+            font-weight: bold;
+            padding: 5px 0;
+        }
+    </style>
+    <script type="text/javascript">
+
+        String.prototype.pad = function (l, s, t) {
+            return s || (s = " "), (l -= this.length) > 0 ?
+				(s = new Array(Math.ceil(l / s.length)
+				+ 1).join(s)).substr(0, t = !t ? l : t == 1 ? 0 : Math.ceil(l / 2))
+				+ this + s.substr(0, l - t) : this;
+        };
+
+        // addLoadEvent @ http://simonwillison.net/2004/May/26/addLoadEvent/
+        var addLoadEvent = function (func) {
+            var oldonload = window.onload;
+            if (typeof window.onload != 'function') {
+                window.onload = func;
+            } else {
+                window.onload = function () {
+                    if (oldonload) {
+                        oldonload();
+                    }
+                    func();
+                }
+            }
+        };
+
+        // Unobtrusive JavaScript Dynamic Clock
+        // http://perishablepress.com/press/2008/03/04/unobtrusive-javascript-dynamic-clock/
+        var xClock = function () {
+            var xC = null, xN = null, xH = null, xI = null,
+				    xM = null, xS = null, xT = null, AP = null;
+
+            if (!document.getElementById) return;
+            xC = document.getElementById("time");
+            if (!xC.nodeName) return;
+            xN = new Date();
+            xH = xN.getHours().toString().pad(2, '0', 0);
+            xM = xN.getMinutes().toString().pad(2, '0', 0);
+            xS = xN.getSeconds().toString().pad(2, '0', 0);
+            AP = (xH >= 12) ? "PM" : "AM";
+            xH = (xH >= 13) ? (xH - 12) : xH;
+            sS = (xN.getMilliseconds() >= 500) ? ":" : "&middot;";
+            xT = xH + ":" + xM + sS + xS + " " + AP;
+            xC.innerHTML = xT;
+            xI = !xI ? null : clearTimeout(xI);
+            xI = setTimeout(xClock, 500);
+        };
+        addLoadEvent(xClock);
+    </script>
+    
+    
+<script type="text/javascript" language="javascript">  function changeMouseOver(btn){  if (! btn.style){  alert('Sorry, your browser does not support this operation.');  return;  }  btn.style.color = '#2E9AFE';  btn.style.cursor = 'pointer';  return;  }  function changeMouseOut(btn)  { if (! btn.style)  {  alert('Sorry, your browser does not support this operation.');  return;  }  btn.style.color = '#150517';  btn.style.cursor = 'auto';  return;  }  function changeMouseOverHref(btn)  {  if (! btn.style)  {  alert('Sorry, your browser does not support this operation.');  return;  }  if(btn.href!= '') btn.style.color = '#2E9AFE';  btn.style.cursor = 'pointer';  return;  }  function changeMouseOutHref(btn)  {  if (! btn.style)  {  alert('Sorry, your browser does not support this operation.');  return;  }  if(btn.href!= '') btn.style.color = '#0A5892';  btn.style.cursor = 'auto';  return;  } </script><style type="text/css">
+	/* <![CDATA[ */
+	#MainMenu { background-color:#B5C7DE; }
+	#MainMenu img.icon { border-style:none;vertical-align:middle; }
+	#MainMenu img.separator { border-style:none;display:block; }
+	#MainMenu img.horizontal-separator { border-style:none;vertical-align:middle; }
+	#MainMenu ul { list-style:none;margin:0;padding:0;width:auto; }
+	#MainMenu ul.dynamic { background-color:#B5C7DE;z-index:1;margin-left:2px; }
+	#MainMenu a { color:#284E98;font-family:Verdana;font-size:1em;text-decoration:none;white-space:nowrap;display:block; }
+	#MainMenu a.static { padding:5px 10px 5px 10px;text-decoration:none; }
+	#MainMenu a.popout { background-image:url("/bbh/WebResource.axd?d=I4tLlYZnvnUX4MVuC6dmV7u4Bq7EqnDbGwvWLsDQwv3TZhGRHTlB-KuRvpMcawC8CyHF3gdG6OSgSkleBkd0zU3uVK36OFTIqDpkdHTOR8I1&t=636476335203255666");background-repeat:no-repeat;background-position:right center;padding-right:14px; }
+	#MainMenu a.dynamic { width:150px;padding:5px 10px 5px 10px;text-decoration:none;border-style:none; }
+	#MainMenu a.static.selected { background-color:#507CD1;text-decoration:none; }
+	#MainMenu a.dynamic.selected { background-color:#507CD1;text-decoration:none; }
+	#MainMenu a.static.highlighted { color:White;background-color:#284E98; }
+	#MainMenu a.dynamic.highlighted { color:White;background-color:#284E98; }
+	/* ]]> */
+</style><style type="text/css">
+	.MenuTreeView_0 { text-decoration:none; }
+	.MenuTreeView_1 { color:Black;font-family:Verdana;font-size:8pt; }
+	.MenuTreeView_2 { padding:2px 5px 2px 5px; }
+	.MenuTreeView_3 { font-weight:bold; }
+	.MenuTreeView_4 {  }
+	.MenuTreeView_5 { font-weight:normal; }
+	.MenuTreeView_6 {  }
+	.MenuTreeView_7 {  }
+	.MenuTreeView_8 { background-color:White;border-color:#888888;border-width:1px;border-style:Solid;padding:1px 3px 1px 3px; }
+	.MenuTreeView_9 { text-decoration:underline; }
+	.MenuTreeView_10 { background-color:#CCCCCC;border-color:#888888;border-style:Solid;text-decoration:underline; }
+
+</style></head>
+<body>
+    <div align="center">
+        <form method="post" action="http://portal.kuet.ac.bd/bbh/Student/frmMyProfile.aspx" id="ctl00">
+<div class="aspNetHidden">
+<input type="hidden" name="MenuTreeView_ExpandState" id="MenuTreeView_ExpandState" value="ennnn">
+<input type="hidden" name="MenuTreeView_SelectedNode" id="MenuTreeView_SelectedNode" value="">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="MenuTreeView_PopulateLog" id="MenuTreeView_PopulateLog" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMjY0OTA2OTEwD2QWAmYPZBYCAgMPZBYEAgMPPCsACQIADxYGHg1OZXZlckV4cGFuZGVkZB4MU2VsZWN0ZWROb2RlZB4JTGFzdEluZGV4AgVkCBQrAAIFAzA6MBQrAAIWBh4EVGV4dAUHU3R1ZGVudB4LTmF2aWdhdGVVcmwFC34vSG9tZS5hc3B4HghFeHBhbmRlZGcUKwAFBQ8wOjAsMDoxLDA6MiwwOjMUKwACFgYfAwUKTXkgUHJvZmlsZR8EBRt+L1N0dWRlbnQvZnJtTXlQcm9maWxlLmFzcHgfBWdkFCsAAhYGHwMFE1N0dWRlbnQgTWVhbCBPbiBPZmYfBAUifi9TdHVkZW50L2ZybVN0dWRlbnRNZWFsT25PZmYuYXNweB8FZ2QUKwACFgYfAwUPUGF5bWVudCBEZXRhaWxzHwQFIH4vU3R1ZGVudC9mcm1QYXltZW50RGV0YWlscy5hc3B4HwVnZBQrAAIWBh8DBRVDaGFuZ2UgTG9naW4gUGFzc3dvcmQfBAUkfi9TdHVkZW50L2ZybUNoYW5nZVN0dWRlbnRMb2dpbi5hc3B4HwVnZGQCBA9kFgQCAQ8PFgIeCEltYWdlVXJsBVR+L0hhbGxfRW1wbG95ZWUvSW1hZ2VIYW5kbGVyLmFzaHg/dGFibGU9VF9Cb2FyZGVySW5mbyZmaWVsZD1TdHVkZW50UGljdHVyZSZJbUlEPTM0MDhkZAIDDzwrAAoBAA8WBB4LXyFEYXRhQm91bmRnHgtfIUl0ZW1Db3VudAIBZBYCZg9kFgZmDw8WAh4HVmlzaWJsZWhkZAIBD2QWAmYPZBYiAgEPDxYCHwMFBzE1MDcwMjhkZAIDDw8WAh8DBRJNRC4gTVVTSEZJUVVSIEFaQU1kZAIFDw8WAh8DBQ5NRC4gTlVSVUwgQVpBTWRkAgcPDxYCHwMFDVNIQUhOQVogQkVHVU1kZAIJDw8WAh8DBQpDaGl0dGFnb25nZGQCCw8PFgIfAwVtRkxBVCNEMSwgTklHQVIgTUFOU0lPTiwgSElHSCBMRVZFTCBST0FELCBMQUxLSEFOIEJBWkFSLCBLSFVMU0hJLCBDSElUVEFHT05HLiwgS2h1bHNoaSwgQ2hpdHRhZ29uZywgQ2hpdHRhZ29uZ2RkAg0PDxYCHwMFA0NTRWRkAg8PDxYCHwMFBEIuU2NkZAIRDw8WAh8DBQVJc2xhbWRkAhMPDxYCHwMFBE1hbGVkZAIVDw8WAh8DZWRkAhcPDxYCHwMFCzAxNTIxMzIzNjcxZGQCGQ8PFgIfAwUVbXVzaGZpcTI4NDdAeWFob28uY29tZGQCGw8PFgIfAwUIV2VzdC01MTZkZAIdDw8WAh8DBQFXZGQCHw8PFgIfAwUDMzE5ZGQCIQ8PFgIfAwUBUmRkAgIPDxYCHwloZGQYAgUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFEmN0bDAwJE1lbnVUcmVlVmlldwUbY3RsMDAkTWFpbkNvbnRlbnQkZnZQcm9maWxlDxQrAAdkZGRkZBYAAgFkbjuPB+Oy8VYW590n7sbIgAnjQM11BlMrPr5K5OlDLUw=">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['ctl00'];
+if (!theForm) {
+    theForm = document.ctl00;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./profile_files/WebResource.axd" type="text/javascript"></script>
+
+
+<script src="./profile_files/ScriptResource.axd" type="text/javascript"></script>
+<script src="./profile_files/ScriptResource(1).axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+    function TreeView_PopulateNodeDoCallBack(context,param) {
+        WebForm_DoCallback(context.data.treeViewID,param,TreeView_ProcessNodeData,context,TreeView_ProcessNodeData,false);
+    }
+var MenuTreeView_Data = null;//]]>
+</script>
+
+<script src="./profile_files/ScriptResource(2).axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="./profile_files/ScriptResource(3).axd" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="8583D6D5">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAOGkpQaN9v6eOFzNdyS6T7Zm3pM55eKATZ8t3A3n1eeSh4VRwJ2E1/cNbZDHIoMaY1eIZdCbrdQrImp8MS5kgNVfX/rRCg7DUS9YPds7zybaw==">
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'ctl00', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+        <div class="page boxshadow">
+            <div class="header">
+                <div style="height: 105px; background: #00A2E5;">
+                    <div style="width: 100px; float: left; height: 100px; padding-left: 4px; margin-top: 4px;" align="left">
+                        <img id="imgLogo" src="./profile_files/logo.png" style="height:95px;">
+                    </div>
+                    <div style="width: 890px; float: left; height: 100px; vertical-align: middle;">
+                        <h1>
+                            Khulna University of Engineering and Technology
+                        </h1>
+                        <div style="font-family: Verdana; font-weight: bold; font-size: 20px;">
+                            Bangabandhu (BSMR) Hall
+                            Management System
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="background: #B5C7DE;">
+                <table width="100%">
+                    <tbody><tr>
+                        <td>
+                            <a href="http://portal.kuet.ac.bd/bbh/Student/frmMyProfile.aspx#MainMenu_SkipLink"><img alt="Skip Navigation Links" src="./profile_files/WebResource(1).axd" width="0" height="0" style="border-width:0px;"></a><div id="MainMenu" style="float: left;">
+	<ul class="level1 static" tabindex="0" role="menubar" style="position: relative; width: auto; float: left;">
+		<li role="menuitem" class="static" style="position: relative; float: left;"><a class="level1 static" href="http://portal.kuet.ac.bd/bbh/Home.aspx" tabindex="-1">Home</a></li><li class="has-popup static" aria-haspopup="MainMenu:submenu:3" role="menuitem" style="position: relative; float: left;"><a class="popout level1 static" href="http://portal.kuet.ac.bd/bbh/Student/frmMyProfile.aspx#" onclick="__doPostBack(&#39;ctl00$MainMenu&#39;,&#39;Help&#39;)" tabindex="-1">Help</a><ul class="level2 dynamic" id="MainMenu:submenu:3" style="display: none; position: absolute; top: 100%; left: 0px;">
+			<li role="menuitem" class="dynamic" style="position: relative;"><a class="level2 menualign dynamic" href="http://portal.kuet.ac.bd/bbh/Manual/frmGeneralInstructions.aspx" tabindex="-1">General Instructions</a></li><li role="menuitem" class="dynamic" style="position: relative;"><a class="level2 menualign dynamic" href="http://portal.kuet.ac.bd/bbh/Student/frmMyProfile.aspx#" onclick="__doPostBack(&#39;ctl00$MainMenu&#39;,&#39;Help\\Technical Manual&#39;)" tabindex="-1">Technical Manual</a></li><li role="menuitem" class="dynamic" style="position: relative;"><a class="level2 menualign dynamic" href="http://portal.kuet.ac.bd/bbh/Manual/frmStudentManual.aspx" tabindex="-1">Student Manual</a></li><li role="menuitem" class="dynamic" style="position: relative;"><a class="level2 menualign dynamic" href="http://portal.kuet.ac.bd/bbh/Manual/frmUserManual.aspx" tabindex="-1">User Manual</a></li>
+		</ul></li><li role="menuitem" class="static" style="position: relative; float: left;"><a class="level1 static" href="http://portal.kuet.ac.bd/bbh/frmContact.aspx" tabindex="-1">Contact</a></li><li role="menuitem" class="static" style="position: relative; float: left;"><a class="level1 static" href="http://portal.kuet.ac.bd/bbh/MembershipManagement/frmLogout.aspx" tabindex="-1">Logout</a></li>
+	</ul>
+</div><div style="clear: left;"></div><a id="MainMenu_SkipLink"></a>
+                        </td>
+                        <td align="right">
+                            <div id="datetime">
+                                <span id="date"></span><span id="time">10:28·53 PM</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div>
+                <div style="width: 250px; float: left; vertical-align: top;" align="left">
+                    <fieldset style="min-height: 760px;">
+                        <a href="http://portal.kuet.ac.bd/bbh/Student/frmMyProfile.aspx#MenuTreeView_SkipLink"><img alt="Skip Navigation Links." src="./profile_files/WebResource(1).axd" width="0" height="0" style="border-width:0px;"></a><div id="MenuTreeView">
+	<table cellpadding="0" cellspacing="0" style="border-width:0;">
+		<tbody><tr>
+			<td><a id="MenuTreeViewn0" href="javascript:TreeView_ToggleNode(MenuTreeView_Data,0,document.getElementById(&#39;MenuTreeViewn0&#39;),&#39; &#39;,document.getElementById(&#39;MenuTreeViewn0Nodes&#39;))"><img src="./profile_files/WebResource(2).axd" alt="Collapse Student" style="border-width:0;"></a></td><td class="MenuTreeView_2 MenuTreeView_4" onmouseover="TreeView_HoverNode(MenuTreeView_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="MenuTreeView_0 MenuTreeView_1 MenuTreeView_3" href="http://portal.kuet.ac.bd/bbh/Home.aspx" id="MenuTreeViewt0">Student</a></td>
+		</tr><tr style="height:1px;">
+			<td></td>
+		</tr>
+	</tbody></table><div id="MenuTreeViewn0Nodes" style="display:block;">
+		<table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tbody><tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:10px;height:1px"></div></td><td><img src="./profile_files/WebResource(3).axd" alt=""></td><td class="MenuTreeView_2" onmouseover="TreeView_HoverNode(MenuTreeView_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="MenuTreeView_0 MenuTreeView_1" href="http://portal.kuet.ac.bd/bbh/Student/frmMyProfile.aspx" id="MenuTreeViewt1">My Profile</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</tbody></table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tbody><tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:10px;height:1px"></div></td><td><img src="./profile_files/WebResource(3).axd" alt=""></td><td class="MenuTreeView_2" onmouseover="TreeView_HoverNode(MenuTreeView_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="MenuTreeView_0 MenuTreeView_1" href="http://portal.kuet.ac.bd/bbh/Student/frmStudentMealOnOff.aspx" id="MenuTreeViewt2">Student Meal On Off</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</tbody></table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tbody><tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:10px;height:1px"></div></td><td><img src="./profile_files/WebResource(3).axd" alt=""></td><td class="MenuTreeView_2" onmouseover="TreeView_HoverNode(MenuTreeView_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="MenuTreeView_0 MenuTreeView_1" href="http://portal.kuet.ac.bd/bbh/Student/frmPaymentDetails.aspx" id="MenuTreeViewt3">Payment Details</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</tbody></table><table cellpadding="0" cellspacing="0" style="border-width:0;">
+			<tbody><tr style="height:1px;">
+				<td></td>
+			</tr><tr>
+				<td><div style="width:10px;height:1px"></div></td><td><img src="./profile_files/WebResource(3).axd" alt=""></td><td class="MenuTreeView_2" onmouseover="TreeView_HoverNode(MenuTreeView_Data, this)" onmouseout="TreeView_UnhoverNode(this)" style="white-space:nowrap;"><a class="MenuTreeView_0 MenuTreeView_1" href="http://portal.kuet.ac.bd/bbh/Student/frmChangeStudentLogin.aspx" id="MenuTreeViewt4">Change Login Password</a></td>
+			</tr><tr style="height:1px;">
+				<td></td>
+			</tr>
+		</tbody></table>
+	</div>
+</div><a id="MenuTreeView_SkipLink"></a>
+                    </fieldset>
+                </div>
+                <div style="width: 750px; float: left; vertical-align: top;">
+                    <fieldset style="min-height: 760px;">
+                        
+    <div align="center">
+        <br>
+        <h3>
+            My Profile
+        </h3>
+        <br>
+        <div style="font-size: 12px; font-family: Verdana;">
+            <fieldset style="width: 690px; font-family: Verdana; font-size: 12px;">
+                <table>
+                    <tbody><tr>
+                        <td valign="top">
+                            <img id="MainContent_ProfileImage" src="./profile_files/ImageHandler.ashx" style="width:150px;">
+                        </td>
+                        <td width="30px">
+                        </td>
+                        <td valign="top">
+                            <table cellspacing="0" cellpadding="4" id="MainContent_fvProfile" style="color:#333333;border-collapse:collapse;">
+	<tbody><tr style="background-color:White;">
+		<td colspan="2">
+                                    <div style="width: 520px;">
+                                        <table width="100%">
+                                            <tbody><tr>
+                                                <td>
+                                                    Student Roll
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblStudentRoll">1507028</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="150">
+                                                    Name
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblStudentName">MD. MUSHFIQUR AZAM</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Father Name
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblFatherName">MD. NURUL AZAM</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Mother Name
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblMotherName">SHAHNAZ BEGUM</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Home District
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblHomeDistrict">Chittagong</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Address
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblAddress">FLAT#D1, NIGAR MANSION, HIGH LEVEL ROAD, LALKHAN BAZAR, KHULSHI, CHITTAGONG., Khulshi, Chittagong, Chittagong</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Department
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblDepartment">CSE</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Degree Level
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblDegreeLevel">B.Sc</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Religion
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblReligion">Islam</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Sex
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblSex">Male</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Phone No
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblPhoneNo"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Mobile No
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblMobileNo">01521323671</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Email Address
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblEmailAddress">mushfiq2847@yahoo.com</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Room No
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblRoomNo">West-516</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Block
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblBlock">W</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Boarder No
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblBoarderNo">319</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Boarder Type
+                                                </td>
+                                                <td>
+                                                    :
+                                                </td>
+                                                <td>
+                                                    <span id="MainContent_fvProfile_lblBoarderType">R</span>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </div>
+                                </td>
+	</tr>
+</tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </fieldset>
+        </div>
+    </div>
+
+                    </fieldset>
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="footer">
+                <div>
+                    Copyright © Institute of Information and Communication Technology, Khulna University
+                    of Engineering &amp; Technology
+                    <br>
+                    Developed by: Engr. Md. Nazim Uddin (Asst. Programmer), Engr. S. M. Saifur Rahman
+                    (Programmer)
+                </div>
+            </div>
+        </div>
+        
+<script type="text/javascript">
+//<![CDATA[
+var MenuTreeView_ImageArray =  new Array('', '', '', '/bbh/WebResource.axd?d=OR_aYEcVPlwZeMtW3zzN2cEUOuyWYTpGoXCvDb5oA5_fzmC_GWCZ1OOjWpaO3qEqKoghCLe0s37seS84VQTzM-_3vG6BKg3hnNMPQKJBdI8jsClfn2wsOlSW1n9uOvWd0&t=636476335203255666', '/bbh/WebResource.axd?d=x4On3DBGeK21eDurFI0TLHrLrT_oU2RM4PfZdfYm0VZY7CBlTWJTzi3KGFJVhZSHvYX65eO8Z9NiwQ4Z8pv8MPXN3K2VkYaaYfP-19r4sVy6V_BgAQBmGDo6ov7n5mJ00&t=636476335203255666', '/bbh/WebResource.axd?d=NDBXIDwZ8Ee5uJmPjFKJ-k7Lh5wVf9eWixKF1k8mxibjA7UAevmGhB2H28fBkfh0hnVhFzWfiGbcpeIeho6vQ72u_b84FSNclf0tYQ1Go1SxsAh1BOtOUIVieTpbcA_S0&t=636476335203255666');
+//]]>
+</script>
+
+<script type="text/javascript">new Sys.WebForms.Menu({ element: 'MainMenu', disappearAfter: 500, orientation: 'horizontal', tabIndex: 0, disabled: false });</script>
+<script type="text/javascript">
+//<![CDATA[
+
+WebForm_InitCallback();var MenuTreeView_Data = new Object();
+MenuTreeView_Data.images = MenuTreeView_ImageArray;
+MenuTreeView_Data.collapseToolTip = "Collapse {0}";
+MenuTreeView_Data.expandToolTip = "Expand {0}";
+MenuTreeView_Data.expandState = theForm.elements['MenuTreeView_ExpandState'];
+MenuTreeView_Data.selectedNodeID = theForm.elements['MenuTreeView_SelectedNode'];
+MenuTreeView_Data.hoverClass = 'MenuTreeView_10';
+MenuTreeView_Data.hoverHyperLinkClass = 'MenuTreeView_9';
+(function() {
+  for (var i=0;i<6;i++) {
+  var preLoad = new Image();
+  if (MenuTreeView_ImageArray[i].length > 0)
+    preLoad.src = MenuTreeView_ImageArray[i];
+  }
+})();
+MenuTreeView_Data.lastIndex = 5;
+MenuTreeView_Data.populateLog = theForm.elements['MenuTreeView_PopulateLog'];
+MenuTreeView_Data.treeViewID = 'ctl00$MenuTreeView';
+MenuTreeView_Data.name = 'MenuTreeView_Data';
+//]]>
+</script>
+</form>
+    </div>
+
+
+</body></html>

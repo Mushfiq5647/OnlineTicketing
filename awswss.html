@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<style type="text/css">
+		
+		body
+		{
+			color: black;
+		}
+	</style>
+	<title></title>
+</head>
+<body>
+
+
+	</div>
+	<div class="form">
+		  <form class="form-content" method="POST">
+    <div class="container">
+   
+        <h2 align="center">Ticket Booking</h2> 
+      <hr>
+      
+     <label for="username"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="username"  />
+       <span class="error"> <?php echo $urerr;?></span>
+       <br>
+       <label for="departure"><b>Departure Time</b></label>
+      <input type="text"  name="departure"/>
+         <span class="error"> <?php echo $perr;?></span>
+            <br>
+        <label for="seat"><b>Seat</b></label>
+     <input type="text"  name="seat"  id="wwws"/>
+
+              <label for="price"><b>Price</b></label>
+      <input type="text"  name="price" id="price" />
+        
+      <div class="clearfix">
+        	<input type="submit" name="book" value="Book Now!!"/>
+	</form>
+	</div>
+<button type="button" onclick='document.getElementById("seat").innerHTML = "Hello JavaScript!"'>Click Me!</button>
+
+
+	<script type="text/javascript">
+		var seat=document.getElementById("seat").InnerHTML="ededed";
+	</script>
+
+
+
+</body>
+</html>

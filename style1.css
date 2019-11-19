@@ -1,0 +1,197 @@
+h1
+{
+  margin: 40px  400px;
+  padding: 16px 16px;
+  background-color: #787878;
+  text-align: center;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+body
+{
+  background-image: url("bus1.jpg");
+  background-size: auto;
+  
+}
+p
+{
+  font-size: 20px;
+
+}
+
+h2
+{
+
+margin: 20px 200px;
+text-align: center;
+ background-color: #787878;
+text-align: center;
+}
+
+
+li {
+    float: left;
+}
+.reg,.log
+{
+  display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+li a:hover {
+    background-color: #111;
+}
+p
+{
+ text-align: center;
+}
+* {box-sizing: border-box}
+/* Full-width input fields */
+  input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/*.container input
+{
+  width: 100%;
+  margin-bottom: 20px;
+}
+*/
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+ 
+  outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.container input[type="submit"]
+{
+height: 40px;
+width: 525px;
+background-color: #4CAF50;
+
+color: white;
+
+}
+
+
+button:hover {
+  opacity:1;
+}
+
+/*.cancelbtn {
+  margin: 0px 30px 5px 5px;
+  padding: 14px 20px;
+  background-color :#4CAF50;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+/*.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+  height: 20px;
+}
+
+.signup
+{
+  height: 20px;
+  width: 14px;
+  background-color: #4CAF50;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  height: 300px;
+    z-index: 1;
+  margin-top: -10px;
+  margin-left: -10px;
+  position: absolute;
+    top: 50%
+    left: 50%;
+  width: 800px;
+} 
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #333;
+  margin: 5% auto 25% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 70%; /* Could be more or less, depending on screen size */
+}
+
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+    width: 50%;
+  }
+}
